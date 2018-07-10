@@ -1,0 +1,549 @@
+// Colors
+// -------------------------------
+$access : #0275D8;
+$disable : #BEE1FF;
+$alert : #F5A623;
+$placeholder : #9B9B9B;
+
+
+
+// Basic settings
+// -------------------------------
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+* { box-sizing: border-box; }
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    appearance: none;
+    opacity: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+
+// Components
+// -------------------------------
+.dropdown {
+    position: relative;
+    width: 100%;
+
+    &__btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        width: 100%;
+        height: 50px;
+        border: 2px solid #000;
+        border-radius: 8px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    &__list {
+        display: none;
+        position: absolute;
+        width: 100%;
+        max-height: 140px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        overflow-y: scroll;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        padding: 0 20px;
+        cursor: pointer;
+        background-color: #fff;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+.is-open {
+    .dropdown__list {
+        display: block;
+        z-index: 1;
+    }
+}
+
+
+.sign-tips {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    margin-bottom: 12px;
+    margin-left: 12px;
+    display: none;
+    padding: .5em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background-color: $alert;
+    color: #fff;
+    font-weight: 300;
+    font-size: .8rem;
+    z-index: 1;
+
+    &::after {
+        content : "";
+        position: absolute;
+        left: -4px;
+        top: 50%;
+        margin-top: -4px;
+        transform: rotate(45deg);
+        width: 8px;
+        height: 8px;
+        background-color: $alert;
+    }
+}
+
+
+.warning {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    background-color: $alert;
+    color: #fff;
+
+    i.fas {
+        position: unset;
+        display: inline;
+        color: #fff;
+        margin-right: 8px;
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+}
+
+
+// App & Sign
+// -------------------------------
+.sign {
+    margin: auto;
+    width: 460px;
+    border-top: 8px solid $access;
+
+    &__step-bar {
+        position: relative;
+        margin: 48px auto;
+        width: 50%;
+        height: 2px;
+        
+        // circle ouside
+        .step-circle {
+            position: absolute;
+            top: -7px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid $access;
+            border-radius: 100px;
+            text-align: center;
+            line-height: 10px;
+            background-color: #fff;
+
+            // circle inside
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                background-color: $access;
+                border-radius: 100px;
+            }
+
+            // positions
+            &:first-of-type {
+
+                // last circle's line delete
+                &::after {
+                    display: none;
+                }
+            }
+
+            &:nth-child(2) {
+                left: 31%;
+
+                // step line
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    display: block;
+                    width: 60px;
+                    border-bottom: 2px solid $access;
+                    z-index: -99;
+                }
+            }
+
+            &:nth-child(3) {
+                right: 31%;
+
+                // step line
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    display: block;
+                    width: 60px;
+                    border-bottom: 2px solid $access;
+                    z-index: -99;
+                }
+            }
+
+            &:last-of-type {
+                right: 0;
+
+                // step line
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    display: block;
+                    width: 60px;
+                    border-bottom: 2px solid $access;
+                    z-index: -99;
+                }
+            }
+        }
+
+        // state settings
+        .is-disabled {
+            border-color: $disable;
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                border-color: $disable !important;
+            } 
+        }
+
+        .is-done {
+            &::before {
+                content: "\f058";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                margin-left: -8px;
+                margin-top: 1px;
+                color: $access;
+                background-color: unset;
+            }
+        }
+    }
+
+    &__heading {
+        text-align: center;
+        margin-top: 48px;
+        margin-bottom: 24px;
+
+        h1 {
+            font-weight: 300;
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__main {
+
+        .sign-form {
+            position: relative;
+
+            &__title {
+                display: block;
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+
+                span {
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+            }
+
+            & + .sign-form {
+                margin-top: 24px;
+            }
+
+            select {
+                width: 100%;
+                padding: 11px 24px;
+                border: 2px solid #000;
+                border-radius: 8px;
+                outline: none;
+                font-size: 1.2rem;
+            }
+        }
+
+        .form-data {
+            width: 100%;
+            line-height: 2.4;
+            padding: 0 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1.2rem;
+
+            &::placeholder {
+                font-weight: 400;
+                font-size: 1.2rem;
+                color: $placeholder;
+            }
+
+            &:focus {
+                border-color: $alert;
+
+                +.sign-tips {
+                    display: inline-block;
+                    +.fa-exclamation-triangle {
+                        display: inline-block;
+                    }
+                }
+
+                
+            }
+        }
+    }
+
+    &__btn {
+        margin-top: 48px;
+
+        .btn {
+            width: 100%;
+            text-align: center;
+            padding: 1em;
+            border-radius: 8px;
+            background-color: $disable;
+
+            span {
+                font-size: 1.2rem;
+                color: #fff;
+            }
+
+            &:hover {
+                background-color: $access;
+            }
+        }
+    }
+
+    .fa-exclamation-triangle {
+        display: none;
+        position: absolute;
+        right: 16px;
+        bottom: 0;
+        margin-bottom: 15px;
+        font-size: 20px;
+        color: $alert;
+    }
+
+    &__done {
+        margin: auto;
+
+        .done-msg {
+            text-align: center;
+
+            i {
+                display: block;
+                margin: 48px 0;
+                font-size: 200px;
+                color: $disable;
+            }
+
+            span {
+                font-style: italic;
+                font-size: 1.5rem;
+                color: $access;
+            }
+        }
+    }
+}
+
+.alert-off {
+    .form-data:focus {
+        border-color: unset;
+    }
+}
+
+
+// upload
+// ---------------
+.upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px; 
+    width: 100%;
+    height: 140px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    color: $placeholder;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        cursor: pointer;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+
+    [class*="upload-"] + [class*="upload-"] {
+        margin-left: 16px;
+    }
+
+    &-icon {
+        flex: 1 0 auto;
+        font-size: 3rem;
+    }
+
+    &-remind {
+        display: flex;
+        flex-direction: column;
+
+        span + span {
+            margin-top: 8px;
+        }
+
+        span {
+            font-weight: 300;
+        }
+
+        span:first-of-type {
+            font-size: 1.5rem;
+        }
+
+        span:last-of-type {
+            font-size: 1rem;
+        }
+    }
+}
+
+.upload-img-wrap {
+    display: flex;
+    justify-content: space-between;
+
+    .upload-img {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 8px;
+
+        &.oversize {
+            border: 2px solid $alert;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: none;
+            bottom: 0;
+            width: 100%;
+            height: 40%;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background-color: $access;
+            cursor: pointer;
+        }
+
+        &::after {
+            content: "\f2ed";
+            position: absolute;
+            display: none;
+            bottom: 16px;
+            left: 50%;
+            margin-left: -12px;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        &:hover {
+
+            &::before, 
+            &::after {
+                display: block;
+            }
+        }
+    }
+}
+
+
+// PAGE-2 
+// ---------------
+.form-align {
+
+    .sign__main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .form-wrap {
+            display: flex;
+            align-items: flex-end;
+
+            + .form-wrap {
+                margin-top: 24px;
+            }
+
+            .sign-form {
+                width: 100%;
+    
+                + .sign-form {
+                    margin: 0;
+                    margin-left: 16px;
+                }
+
+                .sign-tips.notitle,
+                i.notitle {
+                    top: 20%;
+                }
+            }
+        }
+    }
+}

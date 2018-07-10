@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week6 Validation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="sign">
+            <div class="sign__step-bar">
+                <div class="step-circle"></div>
+                <div class="step-circle is-disabled"></div>
+                <div class="step-circle is-disabled"></div>
+                <div class="step-circle is-disabled"></div>
+            </div>
+            <div class="sign__heading">
+                <h1>Creat Account</h1>
+                <h2>Glad to see you here!</h2>
+            </div>
+            <div class="sign__main">
+                <div class="sign-form">
+                    <div class="sign-form__title">Account</div>
+                    <input type="email" class="form-data" placeholder="example@gmail.com">
+                    <div class="sign-tips">
+                        <span>invalid email</span>
+                    </div>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="sign-form">
+                    <div class="sign-form__title">Password</div>
+                    <input type="password" class="form-data" placeholder="••••••••">
+                    <div class="sign-tips">
+                        <span>minimum 8 characters</span>
+                    </div>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="sign-form">
+                    <div class="sign-form__title">Comfirm Password</div>
+                    <input type="password" class="form-data" placeholder="••••••••">
+                    <div class="sign-tips">
+                        <span>not match</span>
+                    </div>
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+            </div>
+            <div class="sign__btn">
+                <a href="step2.html" class="btn">
+                    <span>NEXT</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

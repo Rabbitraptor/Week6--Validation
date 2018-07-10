@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week6 Validation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // dropdown open/close
+            $(".dropdown__btn").click(function(){
+                $(this).parents(".dropdown").toggleClass("is-open");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="app form-align">
+        <div class="sign">
+            <div class="sign__step-bar">
+                <div class="step-circle is-done"></div>
+                <div class="step-circle is-done"></div>
+                <div class="step-circle is-done"></div>
+                <div class="step-circle"></div>
+            </div>
+            <div class="sign__heading">
+                <h1>Payment Method</h1>
+                <h2>Add your credit card infomation! </h2>
+            </div>
+            <div class="sign__main">
+                <div class="form-wrap">
+                    <div class="sign-form">
+                        <div class="sign-form__title">
+                            Card Number
+                        </div>
+                        <input type="text" class="form-data">
+                        <div class="sign-tips">
+                            <span>INVALID NUMBER</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="form-wrap">
+                    <div class="sign-form">
+                        <div class="sign-form__title">Cardholder Name</div>
+                        <input type="text" class="form-data" placeholder="Rabbit Wang">
+                        <div class="sign-tips">
+                            <span>can't be empty</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="sign-form">
+                        <div class="sign-form__title">Bank Name</div>
+                        <input type="text" class="form-data" placeholder="Rabbit Bank">
+                        <div class="sign-tips">
+                            <span>REQUIRED FILED</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="form-wrap">
+                    <div class="sign-form">
+                        <div class="sign-form__title">CVV</div>
+                        <input type="text" class="form-data">
+                        <div class="sign-tips">
+                            <span>REQUIRED FILED</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="sign-form">
+                        <div class="sign-form__title">Expire Date</div>
+                        <input type="text" class="form-data" placeholder="month">
+                        <div class="sign-tips">
+                            <span>can't be empty</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="sign-form">
+                        <input type="text" class="form-data" placeholder="day">
+                        <div class="sign-tips">
+                            <span>can't be empty</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="sign__btn">
+                <a href="done.html" class="btn">
+                    <span>DONE</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
