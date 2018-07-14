@@ -88,12 +88,13 @@ input::-webkit-inner-spin-button {
 .is-open {
     .dropdown__list {
         display: block;
+        box-shadow: 0px 4px 11px 0px #424242;
         z-index: 1;
     }
 }
 
 
-.sign-alert {
+.item-alert {
     position: absolute;
     left: 100%;
     bottom: 0;
@@ -124,6 +125,7 @@ input::-webkit-inner-spin-button {
 
 
 .warning {
+    display: none;
     width: 100%;
     text-align: center;
     margin-bottom: 24px;
@@ -142,6 +144,10 @@ input::-webkit-inner-spin-button {
 
     span {
         text-transform: uppercase;
+    }
+
+    &.is-display {
+        display: block;
     }
 }
 
@@ -299,7 +305,7 @@ input::-webkit-inner-spin-button {
 
         .alert-on {
     
-            .sign-alert {
+            .item-alert {
                 display: block;
             }
         
@@ -316,20 +322,20 @@ input::-webkit-inner-spin-button {
     &__btn {
         margin-top: 48px;
 
-        .btn {
+        .sign-submit {
             width: 100%;
             text-align: center;
             padding: 1em;
             border-radius: 8px;
-            background-color: $disable;
+            background-color: $access;
 
             span {
                 font-size: 1.2rem;
                 color: #fff;
             }
 
-            &:hover {
-                background-color: $access;
+            &.is-disable {
+                background-color: $disable;
             }
         }
     }
