@@ -21,67 +21,71 @@
 <body>
     <div class="app form-align">
         <div class="sign">
-            <div class="sign__step-bar">
-                <div class="step-circle is-done"></div>
-                <div class="step-circle is-done"></div>
-                <div class="step-circle is-done"></div>
-                <div class="step-circle"></div>
-            </div>
-            <div class="sign__heading">
-                <h1>Payment Method</h1>
-                <h2>Add your credit card infomation! </h2>
+            <div class="progress-bar">
+                <!-- 進度條寬度為 step 總數量減1，再乘以 step 完成數量 -->
+                <div class="progress-bar-line" style="width:calc( ( 100% / (4 - 1) ) * 3 );"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step in-progress"></div>
             </div>
             <div class="sign__main">
-                <div class="form-wrap">
-                    <div class="sign-form">
-                        <div class="sign-form__title">
-                            Card Number
+                <div class="sign-form">
+                    <div class="form-heading">
+                        <h1>Payment Method</h1>
+                        <h2>Add your credit card infomation! </h2>
+                    </div>
+                    <div class="form-item-group">
+                        <div class="form-item">
+                            <div class="form-item__title">
+                                Card Number
+                            </div>
+                            <input type="text" class="item-data">
+                            <div class="sign-alert">
+                                <span>INVALID NUMBER</span>
+                            </div>
+                            <i class="fas fa-exclamation-triangle"></i>
                         </div>
-                        <input type="text" class="form-data">
-                        <div class="sign-tips">
-                            <span>INVALID NUMBER</span>
-                        </div>
-                        <i class="fas fa-exclamation-triangle"></i>
                     </div>
                 </div>
-                <div class="form-wrap">
-                    <div class="sign-form">
-                        <div class="sign-form__title">Cardholder Name</div>
-                        <input type="text" class="form-data" placeholder="Rabbit Wang">
-                        <div class="sign-tips">
+                <div class="form-item-group">
+                    <div class="form-item">
+                        <div class="form-item__title">Cardholder Name</div>
+                        <input type="text" class="item-data" placeholder="Rabbit Wang">
+                        <div class="sign-alert">
                             <span>can't be empty</span>
                         </div>
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
-                    <div class="sign-form">
-                        <div class="sign-form__title">Bank Name</div>
-                        <input type="text" class="form-data" placeholder="Rabbit Bank">
-                        <div class="sign-tips">
+                    <div class="form-item">
+                        <div class="form-item__title">Bank Name</div>
+                        <input type="text" class="item-data" placeholder="Rabbit Bank">
+                        <div class="sign-alert">
                             <span>REQUIRED FILED</span>
                         </div>
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
                 </div>
-                <div class="form-wrap">
-                    <div class="sign-form">
-                        <div class="sign-form__title">CVV</div>
-                        <input type="text" class="form-data">
-                        <div class="sign-tips">
+                <div class="form-item-group">
+                    <div class="form-item">
+                        <div class="form-item__title">CVV</div>
+                        <input type="text" class="item-data">
+                        <div class="sign-alert">
                             <span>REQUIRED FILED</span>
                         </div>
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
-                    <div class="sign-form">
-                        <div class="sign-form__title">Expire Date</div>
-                        <input type="text" class="form-data" placeholder="month">
-                        <div class="sign-tips">
+                    <div class="form-item">
+                        <div class="form-item__title">Expire Date</div>
+                        <input type="text" class="item-data" placeholder="month">
+                        <div class="sign-alert">
                             <span>can't be empty</span>
                         </div>
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
-                    <div class="sign-form">
-                        <input type="text" class="form-data" placeholder="day">
-                        <div class="sign-tips">
+                    <div class="form-item">
+                        <input type="text" class="item-data" placeholder="day">
+                        <div class="sign-alert">
                             <span>can't be empty</span>
                         </div>
                         <i class="fas fa-exclamation-triangle"></i>

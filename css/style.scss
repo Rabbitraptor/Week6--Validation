@@ -93,7 +93,7 @@ input::-webkit-inner-spin-button {
 }
 
 
-.sign-tips {
+.sign-alert {
     position: absolute;
     left: 100%;
     bottom: 0;
@@ -146,6 +146,7 @@ input::-webkit-inner-spin-button {
 }
 
 
+
 // App & Sign
 // -------------------------------
 .sign {
@@ -153,119 +154,81 @@ input::-webkit-inner-spin-button {
     width: 460px;
     border-top: 8px solid $access;
 
-    &__step-bar {
+    // progress-bar
+    .progress-bar {
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 48px auto;
         width: 50%;
         height: 2px;
-        
-        // circle ouside
-        .step-circle {
+        background-color: $disable;
+
+        &-line {
             position: absolute;
-            top: -7px;
+            width: 0%;
+            height: 2px;
+            background-color: $access;
+        }
+
+
+        // progress-bar_step  (circle outside)
+        &_step {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 16px;
             height: 16px;
-            border: 2px solid $access;
+            border: 2px solid $disable;
             border-radius: 100px;
             text-align: center;
-            line-height: 10px;
             background-color: #fff;
+            z-index: 1;
 
-            // circle inside
+            // (circle inside)
             &::before {
                 content: "";
-                display: inline-block;
+                display: none;
                 width: 8px;
                 height: 8px;
                 background-color: $access;
                 border-radius: 100px;
             }
 
-            // positions
+            // first step is line off
             &:first-of-type {
-
-                // last circle's line delete
                 &::after {
                     display: none;
                 }
             }
 
-            &:nth-child(2) {
-                left: 31%;
-
-                // step line
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    right: 10px;
+            // when progress is-done, change icon
+            &.is-done {
+                &::before {
+                    content: "\f058";
                     display: block;
-                    width: 60px;
-                    border-bottom: 2px solid $access;
-                    z-index: -99;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    width: 16px;
+                    height: 16px;
+                    color: $access;
+                    background-color: unset;
                 }
             }
 
-            &:nth-child(3) {
-                right: 31%;
-
-                // step line
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    right: 10px;
+            // when progress is in-progress, display the circle inside
+            &.in-progress {
+                border-color: $access;
+    
+                &::before {
                     display: block;
-                    width: 60px;
-                    border-bottom: 2px solid $access;
-                    z-index: -99;
                 }
-            }
-
-            &:last-of-type {
-                right: 0;
-
-                // step line
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    right: 10px;
-                    display: block;
-                    width: 60px;
-                    border-bottom: 2px solid $access;
-                    z-index: -99;
-                }
-            }
-        }
-
-        // state settings
-        .is-disabled {
-            border-color: $disable;
-
-            &::before {
-                display: none;
-            }
-
-            &::after {
-                border-color: $disable !important;
-            } 
-        }
-
-        .is-done {
-            &::before {
-                content: "\f058";
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                margin-left: -8px;
-                margin-top: 1px;
-                color: $access;
-                background-color: unset;
             }
         }
     }
 
-    &__heading {
+    .form-heading {
         text-align: center;
         margin-top: 48px;
         margin-bottom: 24px;
@@ -283,8 +246,19 @@ input::-webkit-inner-spin-button {
 
     &__main {
 
-        .sign-form {
+        .form-item-group {
+            display: flex;
+            align-items: flex-end;
+
+            .form-item + .form-item {
+                margin-left: 24px;
+            }
+        }
+
+        .form-item {
             position: relative;
+            width: 100%;
+            margin-top: 24px;
 
             &__title {
                 display: block;
@@ -297,10 +271,6 @@ input::-webkit-inner-spin-button {
                 }
             }
 
-            & + .sign-form {
-                margin-top: 24px;
-            }
-
             select {
                 width: 100%;
                 padding: 11px 24px;
@@ -311,7 +281,7 @@ input::-webkit-inner-spin-button {
             }
         }
 
-        .form-data {
+        .item-data {
             width: 100%;
             line-height: 2.4;
             padding: 0 20px;
@@ -325,18 +295,20 @@ input::-webkit-inner-spin-button {
                 font-size: 1.2rem;
                 color: $placeholder;
             }
+        }
 
-            &:focus {
+        .alert-on {
+    
+            .sign-alert {
+                display: block;
+            }
+        
+            .item-data {
                 border-color: $alert;
+            }
 
-                +.sign-tips {
-                    display: inline-block;
-                    +.fa-exclamation-triangle {
-                        display: inline-block;
-                    }
-                }
-
-                
+            .fa-exclamation-triangle {
+                display: block;
             }
         }
     }
@@ -372,7 +344,7 @@ input::-webkit-inner-spin-button {
         color: $alert;
     }
 
-    &__done {
+    &-done {
         margin: auto;
 
         .done-msg {
@@ -394,11 +366,6 @@ input::-webkit-inner-spin-button {
     }
 }
 
-.alert-off {
-    .form-data:focus {
-        border-color: unset;
-    }
-}
 
 
 // upload
@@ -514,36 +481,3 @@ input::-webkit-inner-spin-button {
 }
 
 
-// PAGE-2 
-// ---------------
-.form-align {
-
-    .sign__main {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-
-        .form-wrap {
-            display: flex;
-            align-items: flex-end;
-
-            + .form-wrap {
-                margin-top: 24px;
-            }
-
-            .sign-form {
-                width: 100%;
-    
-                + .sign-form {
-                    margin: 0;
-                    margin-left: 16px;
-                }
-
-                .sign-tips.notitle,
-                i.notitle {
-                    top: 20%;
-                }
-            }
-        }
-    }
-}

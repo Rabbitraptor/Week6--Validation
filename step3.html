@@ -21,18 +21,20 @@
 <body>
     <div class="app">
         <div class="sign">
-            <div class="sign__step-bar">
-                <div class="step-circle is-done"></div>
-                <div class="step-circle is-done"></div>
-                <div class="step-circle"></div>
-                <div class="step-circle is-disabled"></div>
-            </div>
-            <div class="sign__heading">
-                <h1>Update Profile Picture</h1>
-                <h2>We wanna know you more!</h2>
+            <div class="progress-bar">
+                <!-- 進度條寬度為 step 總數量減1，再乘以 step 完成數量 -->
+                <div class="progress-bar-line" style="width:calc( ( 100% / (4 - 1) ) * 2 );"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step in-progress"></div>
+                <div class="progress-bar_step"></div>
             </div>
             <div class="sign__main">
-                <div class="form-wrap">
+                <div class="sign-form">
+                    <div class="form-heading">
+                        <h1>Update Profile Picture</h1>
+                        <h2>We wanna know you more!</h2>
+                    </div>
                     <label class="upload">
                         <input type="file">
                         <div class="upload__inner">
@@ -60,12 +62,12 @@
                             <img src="img/sample3.jpg" alt="">
                         </div>
                     </div>
+                    <div class="sign__btn">
+                        <a href="step4.html" class="btn">
+                            <span>NEXT</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="sign__btn">
-                <a href="step4.html" class="btn">
-                    <span>NEXT</span>
-                </a>
             </div>
         </div>
     </div>
